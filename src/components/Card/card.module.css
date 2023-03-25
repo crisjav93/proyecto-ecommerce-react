@@ -1,0 +1,8 @@
+.container{
+    border: 1px solid #6e6767;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+    align-items: center;
+    max-width: 25rem;
+}
