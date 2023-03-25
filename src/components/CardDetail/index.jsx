@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom"
-import styles from './cardDetail.module.css'
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import styles from '../ItemListContainer/itemList.module.css'
+
 
 const CardDetail = () => {
     const [producto, setProducto] = useState({});
@@ -30,14 +38,31 @@ const CardDetail = () => {
             return <h2>Loading...</h2>
         }
     return (
-        <div className={styles.container}>
-            <h3>{producto.title}</h3>
-            <img src={producto.image} alt={producto.title} width='200' height='250' />
-            <p>{producto.description}</p>
-            <p>$ {producto.price}</p>
-            <p>{producto.category}</p>
+        
+        <div className={styles.itemList}>
+            <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                    component="img"
+                    alt="green iguana"
+                    height="140"
+                    image={producto.image}
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                    <h5>{producto.title}</h5>
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        <h6>{producto.description}</h6>
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button size="small">Share</Button>
+                    <Button size="small">Learn More</Button>
+                </CardActions>
+            </Card>
         </div>
     );
 };
+
 
 export default CardDetail

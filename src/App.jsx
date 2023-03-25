@@ -21,7 +21,7 @@ function App() {
   console.log(productos);
 
   return (
-    <div>
+    <div className='App'>
       <Navbar />
       <h1>Tienda</h1>
       <Routes>
