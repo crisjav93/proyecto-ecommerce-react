@@ -6,29 +6,6 @@ import Navbar from './components/Navbar';
 import ItemListContainer from "./components/ItemListContainer";
 import ItemFilter from './components/ListFiltered';
 
-const NavArrayLinks= [
-  {
-    title: 'Home',
-    path: '/home',
-  },
-  {
-    title: "Men's clothing",
-    path: '/category/men',
-  },
-  {
-    title: "Women's clothing",
-    path: '/category/women',
-  },
-  {
-    title: "Electronics",
-    path: '/category/electronics',
-  },
-  {
-    title: "Jewelery",
-    path: '/category/jewelery',
-  }
-]
-
 
 function App() {
   const [productos, setProductos] = useState([])
@@ -45,8 +22,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Navbar NavArrayLinks ={NavArrayLinks}/>
-      <h1>Tienda</h1>
+      <Navbar />
       <Routes>
         <Route path='/' element= {<Navigate to='/home' />} />
         <Route path='/home' element= {<ItemListContainer productos ={productos} />} />

@@ -1,80 +1,54 @@
 import {Box} from '@mui/system'
 import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import InboxIcon from '@mui/icons-material/InBox'
+import { NavLink } from 'react-router-dom'
 
+const navArrayLinks= [
+    {
+    title: 'Home',
+    path: '/home',
+    },
+    {
+    title: "Men's clothing",
+    path: '/category/men',
+    },
+    {
+    title: "Women's clothing",
+    path: '/category/women',
+    },
+    {
+    title: "Electronics",
+    path: '/category/electronics',
+    },
+    {
+    title: "Jewelery",
+    path: '/category/jewelery',
+    },
+    
+]
 
-export default function NavListDrawer({ NavArrayLinks }){
+export default function NavListDrawer({setOpen}){
     return <Box sx={ {width: 250, bgcolor:'lightslategray'}}>
         <nav>
             <List>
-            <ListItem disablePadding>
-                    <ListItemButton
-                        component='a'
-                        href='/home'
-                    > 
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
-                        <ListItemText primary='Show All'/>
-                    </ListItemButton>
-                </ListItem>
-
-                <ListItem disablePadding>
-                    <ListItemButton
-                        component='a'
-                        href='/category/men'
-                    > 
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
-                        <ListItemText primary='Men'/>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton
-                    component='a'
-                    href='/category/women'
-                    > 
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
-                        <ListItemText primary='Women'/>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton
-                    component='a'
-                    href='/category/electronics'
-                    > 
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
-                        <ListItemText primary='Electronics'/>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton
-                    component='a'
-                    href='/category/jewelery'
-                    > 
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
-                        <ListItemText primary='Jewelery'/>
-                    </ListItemButton>
-                </ListItem>
-
+                {
+                    navArrayLinks.map(item => (
+                        <ListItem disablePadding key={item.title}>
+                                <ListItemButton
+                                    component={NavLink}
+                                    to={item.path}
+                                    onClick={() => setOpen(false)}
+                                > 
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                    <ListItemText>{item.title}</ListItemText>
+                                </ListItemButton>
+                            </ListItem>
+                    ))
+                }
             </List>
         </nav>
         <Divider />
-        {/* <nav>
-            <List>
-                <ListItem disablePadding>
-                    <ListItemButton> 
-                        <ListItemText primary='Inbox'/>
-                    </ListItemButton>
-                </ListItem>
-            </List>
-        </nav> */}
     </Box>
 }

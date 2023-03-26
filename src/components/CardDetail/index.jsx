@@ -43,7 +43,7 @@ const CardDetail = () => {
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                     component="img"
-                    alt="green iguana"
+                    alt={producto.title}
                     height="140"
                     image={producto.image}
                 />

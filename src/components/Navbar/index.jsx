@@ -1,31 +1,3 @@
-import { NavLink } from 'react-router-dom'
-import styles from './navbar.module.css'
-import CartWidget from '../CartWidget'
-
-// const Navbar = () => {
-//     const activeStyle = {
-//         color: 'red',
-//     }
-//     return (
-    // <nav className={styles.container}>
-        
-    //     <NavLink to='/category/men' >
-    //         <p>Men's Cloth</p>
-    //     </NavLink>
-    //     <NavLink to='/category/women' >
-    //         <p>Women's Cloth</p>
-    //     </NavLink>
-    //     <NavLink to='/category/electronics' >
-    //         <p>Electronics</p>
-    //     </NavLink>
-    //     <NavLink to='/category/jewelery' >
-    //         <p>Jewelery</p>
-    //     </NavLink>
-    //     <CartWidget></CartWidget>
-    // </nav>
-//     )
-// }
-
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -37,39 +9,47 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { Drawer } from '@mui/material';
 import NavListDrawer from './NavListDrawer'
-
+import CartWidget from '../CartWidget'
 
 
 export default function Navbar(){
     const [open, setOpen] = useState(false);
     return (
-        <>
+        <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Toolbar>
-                    <Typography>
-                        <img src="../../img/logo-infinity.png" alt="Infinity Library" width="112" height="28" />
-                    </Typography>
-                    <IconButton
-                    color='inherit'
-                    size='large'
-                    onClick={() => setOpen(true)}
-                    >
-                        <MenuIcon />
-                        <Typography 
-                        variant='h6' 
-                        sx={{flexGrow:1}}>
+                    <Toolbar>
+                        <IconButton
+                        color='inherit'
+                        size='large'
+                        onClick={() => setOpen(true)}
+                        sx={{ml:-3 }}
+                        >
+                            <MenuIcon />
+                            <Typography 
+                            variant='h6'
+                            >
                             MENU
-                        </Typography>
-                    </IconButton>
-                </Toolbar>
+                            </Typography>
+                        </IconButton>
+                        <Box sx={{ mx: 'auto', width: 200 }}>
+                            <img src="../../img/logo-infinity.png" alt="Infinity Library" width="112" height="28" />
+                        </Box>
+                        <Box sx={{ }}>
+                            <IconButton color='inherit'>
+                                <CartWidget />
+                            </IconButton>
+                        </Box>
+                    </Toolbar>
             <Drawer
                 open={open}
                 anchor='left'
                 onClose={() => setOpen(false)}
             >
-                <NavListDrawer />
+                <NavListDrawer setOpen={setOpen}/>
+                
+                
             </Drawer>
             </AppBar>
-        </>
+        </Box>
     );
 }
