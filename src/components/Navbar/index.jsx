@@ -43,6 +43,7 @@ import NavListDrawer from './NavListDrawer'
 export default function Navbar(){
     const [open, setOpen] = useState(false);
     return (
+        <>
             <AppBar position="static">
                 <Toolbar>
                     <Typography>
@@ -54,18 +55,21 @@ export default function Navbar(){
                     onClick={() => setOpen(true)}
                     >
                         <MenuIcon />
-                        <Typography variant='h6'>
+                        <Typography 
+                        variant='h6' 
+                        sx={{flexGrow:1}}>
                             MENU
                         </Typography>
                     </IconButton>
                 </Toolbar>
-                    <Drawer
-                        open={open}
-                        anchor='left'
-                        onClose={() => setOpen(false)}
-                    >
-                        <NavListDrawer />
-                    </Drawer>
+            <Drawer
+                open={open}
+                anchor='left'
+                onClose={() => setOpen(false)}
+            >
+                <NavListDrawer />
+            </Drawer>
             </AppBar>
+        </>
     );
 }
