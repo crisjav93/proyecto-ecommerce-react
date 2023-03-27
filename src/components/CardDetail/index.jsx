@@ -40,11 +40,12 @@ const CardDetail = () => {
     return (
         
         <div className={styles.itemList}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ mx: 'auto', width: 250 }}>
                 <CardMedia
                     component="img"
                     alt={producto.title}
-                    height="140"
+                    height="250"
+                    width='250'
                     image={producto.image}
                 />
                 <CardContent>
@@ -54,6 +55,10 @@ const CardDetail = () => {
                     <Typography variant="body2" color="text.secondary">
                         <h6>{producto.description}</h6>
                     </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        <h3>$ {producto.price}</h3>
+                    </Typography>
+
                 </CardContent>
                 <CardActions>
                     <Button size="small">Share</Button>

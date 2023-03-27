@@ -2,6 +2,10 @@ import {Box} from '@mui/system'
 import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import InboxIcon from '@mui/icons-material/InBox'
 import { NavLink } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './NavbarStyle'
+
+
 
 const navArrayLinks= [
     {
@@ -24,11 +28,11 @@ const navArrayLinks= [
     title: "Jewelery",
     path: '/category/jewelery',
     },
-    
 ]
 
 export default function NavListDrawer({setOpen}){
-    return <Box sx={ {width: 250, bgcolor:'lightslategray'}}>
+    return <Box sx={ {width: 250}}>
+        <ThemeProvider theme={theme}>
         <nav>
             <List>
                 {
@@ -50,5 +54,6 @@ export default function NavListDrawer({setOpen}){
             </List>
         </nav>
         <Divider />
+        </ThemeProvider>
     </Box>
 }

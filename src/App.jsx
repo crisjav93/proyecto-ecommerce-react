@@ -5,6 +5,7 @@ import CardDetail from './components/CardDetail';
 import Navbar from './components/Navbar';
 import ItemListContainer from "./components/ItemListContainer";
 import ItemFilter from './components/ListFiltered';
+import CartWidget from './components/CartWidget';
 
 
 function App() {

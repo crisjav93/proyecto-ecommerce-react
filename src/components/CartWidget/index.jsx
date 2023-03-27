@@ -1,10 +1,17 @@
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
+
+
+
 
 const CartWidget = () => {
 return (
-    <div>
-        <LocalGroceryStoreIcon />
-    </div>
+    <Link to='/cart'>
+        <IconButton color='secondary'> 
+            <LocalGroceryStoreIcon />
+        </IconButton>
+    </Link>
 )
 }
 

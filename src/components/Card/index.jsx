@@ -7,27 +7,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { spacing } from '@mui/system';
 
-// const Card = ({ producto }) => {
-//     return (
-//             <Link to={`/products/${producto.id}`}>
-//                 <div className={styles.container}>
-//                     <h3>{producto.title}</h3>
-//                     <img src={producto.image} alt={producto.title} width='200' height='250' />
-//                     <p>{producto.description}</p>
-//                     <p>$ {producto.price}</p>
-//                 </div>
-//             </Link>
-//     )
-// }
-
-// export default Card
 
 
 export default function ProductCard({producto}) {
 return (
     <Link to={`/products/${producto.id}`}>
-        <Card sx={{ maxWidth: 345 }}> 
+        <Card sx={{ mx: 'auto', width: 200 }}> 
             <CardMedia
                 component="img"
                 alt={producto.title}
@@ -38,9 +25,6 @@ return (
             <CardContent>
             <Typography gutterBottom variant="h5" component="div">
                 <h6>${producto.price}</h6>
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-                <h3>{}</h3>
             </Typography>
             </CardContent>
             <CardActions>
