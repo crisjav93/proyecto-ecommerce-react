@@ -13,12 +13,12 @@ const navArrayLinks= [
     path: '/home',
     },
     {
-    title: "Men's clothing",
-    path: '/category/men',
+    title: "Novelas",
+    path: '/category/Novela',
     },
     {
-    title: "Women's clothing",
-    path: '/category/women',
+    title: "Politica",
+    path: '/category/Politica',
     },
     {
     title: "Electronics",

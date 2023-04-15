@@ -1,13 +1,15 @@
+import { green } from '@mui/material/colors'
 import Card from '../Card'
 import styles from '../ItemListContainer/itemList.module.css'
+import ProductList from '../ItemListContainer'
 
 
-const ItemFilter = ({ productos , categoria }) => {
+/** Funcion que sirve para realizar un filtro por genero  */
+
+const ItemFilter = ({ productos , genre }) => {
+    const productosFiltrados = productos.filter(producto => producto.genre.some(genero => genero === genre));
     return (
-        <div className={styles.itemList}>
-            {productos.map((producto, id) => (producto.category == categoria?<Card key={id} producto={producto} />:null)
-            )}
-        </div>
+        <ProductList productos={productosFiltrados}/>
     )
 }
 
