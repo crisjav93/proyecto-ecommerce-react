@@ -12,7 +12,7 @@ function App() {
   const [productos, setProductos] = useState([])
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('../products.json')
     .then(response => response.json())
     .then(data => {
       setProductos(data)
@@ -28,10 +28,10 @@ function App() {
         <Route path='/' element= {<Navigate to='/home' />} />
         <Route path='/home' element= {<ItemListContainer productos ={productos} />} />
         <Route path='/products/:id' element={<CardDetail />} />
-        <Route path='/category/men' element={<ItemFilter productos={productos} categoria="men's clothing"/>} />
-        <Route path='/category/women' element={<ItemFilter productos={productos} categoria="women's clothing"/>} />
+        <Route path='/category/:genre' element={<ItemListContainer productos={productos} />} />
+        {/* <Route path='/category/women' element={<ItemFilter productos={productos} categoria="women's clothing"/>} />
         <Route path='/category/electronics' element={<ItemFilter productos={productos} categoria="electronics"/>} />
-        <Route path='/category/jewelery' element={<ItemFilter productos={productos} categoria="jewelery"/>} />
+        <Route path='/category/jewelery' element={<ItemFilter productos={productos} categoria="jewelery"/>} /> */}
         <Route path='/404' element={<h2>404 Not Found</h2>} />
       </Routes>
     </div>

@@ -17,10 +17,13 @@ const CardDetail = () => {
 
     const getProducto = async () =>{
         try{
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-        const data = await response.json();
-        setProducto(data);
-        setLoading(false);
+        fetch('../../../products.json')
+        .then(response => response.json())
+        .then(data => {
+            const producto = data.find(productoData => productoData.id === parseInt(id))
+            setProducto(producto)
+            setLoading(false)
+        })
     } catch (error){
         setProducto(null)
     }
