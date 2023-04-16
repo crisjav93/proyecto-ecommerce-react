@@ -4,39 +4,33 @@ import InboxIcon from '@mui/icons-material/InBox'
 import { NavLink } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './NavbarStyle'
-
-
-
-const navArrayLinks= [
-    {
-    title: 'Home',
-    path: '/home',
-    },
-    {
-    title: "Novelas",
-    path: '/category/Novela',
-    },
-    {
-    title: "Politica",
-    path: '/category/Politica',
-    },
-    {
-    title: "Electronics",
-    path: '/category/electronics',
-    },
-    {
-    title: "Jewelery",
-    path: '/category/jewelery',
-    },
-]
+import productos from '../../../products.json'
 
 export default function NavListDrawer({setOpen}){
+    const genres = productos.reduce((acc, producto) => {
+        const { genre } = producto;
+        if (!acc[genre]) {
+            acc[genre] = {
+                title: genre,
+                path: `/category/${genre}`,
+            };
+        }
+        return acc;
+    }, {});
+    genres["Home"] = {
+        title: "Todos",
+        path: "/home",
+    };
+
+    
     return <Box sx={ {width: 250}}>
         <ThemeProvider theme={theme}>
         <nav>
+
             <List>
+        <Divider />
                 {
-                    navArrayLinks.map(item => (
+                    Object.values(genres).map(item => (
                         <ListItem disablePadding key={item.title}>
                                 <ListItemButton
                                     component={NavLink}
@@ -57,3 +51,5 @@ export default function NavListDrawer({setOpen}){
         </ThemeProvider>
     </Box>
 }
+
+
