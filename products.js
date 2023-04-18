@@ -1,4 +1,4 @@
-[
+const productos = [
 {
 "title": "Libro El Nudo - Carlos Pagni - Planeta",
 "price": 8900,
@@ -350,3 +350,5 @@
 "description":["Este libro se presenta en una bolsa de pvc con cierre y manijas e incluye un juguete de baño que representa al protagonista de cada historia."],
 "id": 50049}
 ]
+
+export default productos;

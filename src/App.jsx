@@ -4,19 +4,23 @@ import './App.css'
 import CardDetail from './components/CardDetail';
 import Navbar from './components/Navbar';
 import ItemListContainer from "./components/ItemListContainer";
+import db from '../db/firebase-config';
+import { getDocs, collection } from 'firebase/firestore';
 
 
 function App() {
   const [productos, setProductos] = useState([])
-
-  useEffect(() => {
-    fetch('../products.json')
-    .then(response => response.json())
-    .then(data => {
-      setProductos(data)
-    })
+  const productosRef = collection(db, 'productos')
+  
+  const getProductos = async() =>{
+    const querySnapshot = await getDocs (productosRef)
+    const docs = querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
+    setProductos(docs)
+  }
+  
+  useEffect(() => { 
+    getProductos() 
   }, [])
-
 
   return (
     <div className='App'>

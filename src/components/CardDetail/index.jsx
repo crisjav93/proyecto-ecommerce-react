@@ -8,34 +8,31 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import styles from '../ItemListContainer/itemList.module.css'
+import db from "../../../db/firebase-config";
+import { collection, doc, getDocs, } from "firebase/firestore";
+
 
 
 const CardDetail = () => {
-    const [producto, setProducto] = useState({});
-    const [loading, setLoading] = useState(true);
     const { id } = useParams();
-
-    const getProducto = async () =>{
-        try{
-        fetch('../../../products.json')
-        .then(response => response.json())
-        .then(data => {
-            const producto = data.find(productoData => productoData.id === parseInt(id))
-            setProducto(producto)
-            setLoading(false)
-        })
-    } catch (error){
-        setProducto(null)
-    }
+    const [producto, setProductos] = useState({});
+    const [loading, setLoading] = useState(true);
+    const productosRef = collection(db, "productos");
+    const getProductos = async() =>{
+        const docRef =  doc(db, 'productos', id);
+        const docSnap = await getDocs (docRef)
+        if (docSnap.exist()){
+            setProductos(productos)
+            setLoading(false);
+        } else {
+            document.body.innerHTML = "<h1>Producto no encontrado</h1>"
+        }
         };
-    
+
     useEffect(() => {
-        getProducto();
+        getProductos();
         }, []); 
 
-        if (!producto) {
-            return <Navigate to='/404'/>;
-        };
 
         if (loading) {
             return <h2>Loading...</h2>
@@ -74,3 +71,5 @@ const CardDetail = () => {
 
 
 export default CardDetail
+
+

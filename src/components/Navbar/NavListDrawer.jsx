@@ -4,7 +4,7 @@ import InboxIcon from '@mui/icons-material/InBox'
 import { NavLink } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './NavbarStyle'
-import productos from '../../../products.json'
+import productos from '../../../products'
 
 export default function NavListDrawer({setOpen}){
     const genres = productos.reduce((acc, producto) => {
