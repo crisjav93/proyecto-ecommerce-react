@@ -36,27 +36,3 @@ return (
 );
 }
 
-// export default function ProductCard({ producto }) {
-//     return (
-//         <Link to={`/products/${producto.id}`}>
-//         <Card sx={{ maxWidth: 345 }} className={styles.card}>
-//             <CardActionArea>
-//             <CardMedia
-//                 component="img"
-//                 height="340"
-//                 image={producto.image}
-//                 alt={producto.title}
-//             />
-//             <CardContent>
-//                 <Typography gutterBottom variant="h5" component="div" key={item.id}>
-//                     {producto.title}
-//                 </Typography>
-//                 <Typography variant="body2">
-//                     Precio: $ {producto.price}
-//                 </Typography>
-//             </CardContent>
-//         </CardActionArea>
-//         </Card>
-//         </Link>
-//     );
-// };
