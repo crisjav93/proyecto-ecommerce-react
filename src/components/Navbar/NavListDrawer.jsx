@@ -1,5 +1,6 @@
 import { Box } from "@mui/system";
-import {  Divider,List,ListItem,ListItemButton,ListItemIcon,ListItemText  } from "@mui/material";
+import {  Divider,List,ListItem,ListItemButton,ListItemIcon,ListItemText} from "@mui/material";
+import InboxIcon from "@mui/icons-material/InBox";
 import { NavLink } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./NavbarStyle";
@@ -34,6 +35,9 @@ export default function NavListDrawer({ setOpen }) {
                   to={item.path}
                   onClick={() => setOpen(false)}
                 >
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
                   <ListItemText>{item.title}</ListItemText>
                 </ListItemButton>
               </ListItem>
