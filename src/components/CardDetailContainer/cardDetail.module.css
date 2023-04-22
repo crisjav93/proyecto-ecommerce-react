@@ -4,5 +4,9 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 1.5rem;
-    
+}
+
+
+.descripcion{
+    padding-bottom: 0.3em;
 }
