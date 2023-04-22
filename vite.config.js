@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    rollupOptions: {
-      external: ['@mui/icons-material/InBox']
+    // rollupOptions: {
+    //   external: ['@mui/icons-material/InBox']
     }
   }
 })
