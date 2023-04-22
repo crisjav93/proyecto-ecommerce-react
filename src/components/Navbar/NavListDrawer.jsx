@@ -35,9 +35,6 @@ export default function NavListDrawer({ setOpen }) {
                   to={item.path}
                   onClick={() => setOpen(false)}
                 >
-                  <ListItemIcon>
-                    <InboxIcon />
-                  </ListItemIcon>
                   <ListItemText>{item.title}</ListItemText>
                 </ListItemButton>
               </ListItem>
