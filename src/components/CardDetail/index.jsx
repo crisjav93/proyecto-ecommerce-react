@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
-
 import db from "../../../db/firebase-config";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import ItemCount from "../itemCount/item";

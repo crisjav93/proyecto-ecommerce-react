@@ -1,6 +1,4 @@
 import Card from "../Card";
-import { Grid } from "@mui/material";
-import styles from "./itemList.module.css";
 import { useParams } from "react-router-dom";
 
 const ProductList = ({ productos }) => {

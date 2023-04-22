@@ -1,6 +1,3 @@
-import { green } from '@mui/material/colors'
-import Card from '../Card'
-import styles from '../ItemListContainer/itemList.module.css'
 import ProductList from '../ItemListContainer'
 
 

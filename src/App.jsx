@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ToastContainer } from "react-toastify";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import CardDetail from "./components/CardDetail";
@@ -9,7 +8,6 @@ import db from "../db/firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 import Cart from "./components/cart/cart";
 import { CartProvider } from "./context/CartContex";
-
 function App() {
   const [productos, setProductos] = useState([]);
   const productosRef = collection(db, "productos");
